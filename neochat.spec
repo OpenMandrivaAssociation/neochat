@@ -24,6 +24,7 @@ BuildRequires: cmake(KF5CoreAddons)
 BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5Kirigami2)
 BuildRequires: cmake(KF5Notifications)
+BuildRequires: cmake(KF5DBusAddons)
 
 BuildRequires: cmake(Olm)
 BuildRequires: cmake(QtOlm)
