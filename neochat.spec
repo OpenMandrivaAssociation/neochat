@@ -39,9 +39,9 @@ BuildRequires: pkgconfig(appstream-glib)
 BuildRequires: ninja
 
 Requires: hicolor-icon-theme
-Requires: kf5-kirigami2%{?_isa}
-Requires: kf5-kitemmodels%{?_isa}
-Requires: qt5-qtquickcontrols2%{?_isa}
+Requires: kirigami2
+Requires: %{_lib}KF5ItemModels5
+Requires: qt5-qtquickcontrols2
 
 %description
 Neochat is a client for Matrix, the decentralized communication protocol for
