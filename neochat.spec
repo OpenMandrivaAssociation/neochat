@@ -33,11 +33,9 @@ BuildRequires: pkgconfig(libcmark)
 BuildRequires: cmake
 BuildRequires: desktop-file-utils
 BuildRequires: extra-cmake-modules
-BuildRequires: gcc
-BuildRequires: gcc-c++
-BuildRequires: kf5-rpm-macros
-BuildRequires: libappstream-glib
-BuildRequires: ninja-build
+
+BuildRequires: pkgconfig(appstream-glib)
+BuildRequires: ninja
 
 Requires: hicolor-icon-theme
 Requires: kf5-kirigami2%{?_isa}
