@@ -52,12 +52,12 @@ notably Kirigami, KConfig and KI18n.
 sed -e 's/5.76.0/5.75.0/g' -i CMakeLists.txt
 
 %build
-%cmake_kf5 -G Ninja \
+%cmake -G Ninja \
     -DCMAKE_BUILD_TYPE=Release
-%cmake_build
+%ninja_build
 
 %install
-%cmake_install
+%ninja_install -C build
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.appdata.xml
@@ -70,4 +70,4 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{_datadir}/applications/*.desktop
 %{_datadir}/icons/hicolor/*/apps/*
 %{_metainfodir}/*.appdata.xml
-%{_kf5_datadir}/knotifications5/%{name}.notifyrc
+%{_datadir}/knotifications5/%{name}.notifyrc
