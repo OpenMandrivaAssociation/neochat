@@ -60,10 +60,6 @@ sed -e 's/5.76.0/5.75.0/g' -i CMakeLists.txt
 %install
 %ninja_install -C build
 
-%check
-appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/*.appdata.xml
-desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
-
 %files
 %license LICENSES/*
 %doc README.md
