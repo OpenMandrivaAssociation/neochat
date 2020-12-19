@@ -1,5 +1,3 @@
-%undefine __cmake_in_source_build
-
 Name: neochat
 Version: 1.0
 Release: 1
@@ -29,6 +27,7 @@ BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(Olm)
 BuildRequires: cmake(QtOlm)
 BuildRequires: cmake(Quotient)
+BuildRequires: cmake(KQuickImageEditor)
 BuildRequires: pkgconfig(libcmark)
 
 BuildRequires: cmake
@@ -41,6 +40,7 @@ BuildRequires: ninja
 Requires: hicolor-icon-theme
 Requires: kirigami2
 Requires: %{_lib}KF5ItemModels5
+Requires: qml(org.kde.kquickimageeditor)
 Requires: qt5-qtquickcontrols2
 
 %description
@@ -50,11 +50,9 @@ notably Kirigami, KConfig and KI18n.
 
 %prep
 %autosetup -n %{name}-%{version} -p1
-sed -e 's/5.76.0/5.75.0/g' -i CMakeLists.txt
 
 %build
-%cmake -G Ninja \
-    -DCMAKE_BUILD_TYPE=Release
+%cmake_kde5
 %ninja_build
 
 %install
