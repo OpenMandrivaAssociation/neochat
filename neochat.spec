@@ -7,7 +7,7 @@ Release: 1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
-Source0: https://invent.kde.org/network/neochat/-/archive/%{?git:master}%{!?git:%{version}}/%{name}-%{?git:%{git}}%{!?git:%{version}}.tar.bz2
+Source0: https://invent.kde.org/network/neochat/-/archive/v%{version}/neochat-v%{version}.tar.bz2
 
 BuildRequires: cmake(Qt5Concurrent)
 BuildRequires: cmake(Qt5Core)
@@ -52,7 +52,7 @@ instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -n %{name}-v%{version} -p1
 
 %build
 %cmake_kde5
