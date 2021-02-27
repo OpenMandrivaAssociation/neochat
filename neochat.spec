@@ -52,7 +52,7 @@ instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
 %prep
-%autosetup -n %{name}-%{?git:master-%{gitcommit}}%{!?git:%{version}} -p1
+%autosetup -n %{name}-%{version} -p1
 
 %build
 %cmake_kde5
