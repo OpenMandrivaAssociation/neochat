@@ -2,7 +2,7 @@
 %define gitcommit 3fcb40f9ddbf51d014e0f978d402b426ca3a3460
 
 Name: neochat
-Version: 1.1
+Version: 1.1.1
 Release: 1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
