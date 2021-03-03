@@ -29,7 +29,7 @@ BuildRequires: cmake(KF5DBusAddons)
 
 BuildRequires: cmake(Olm)
 BuildRequires: cmake(QtOlm)
-BuildRequires: cmake(Quotient)
+BuildRequires: cmake(Quotient) = 0.6.5
 BuildRequires: cmake(KQuickImageEditor)
 BuildRequires: pkgconfig(libcmark)
 
