@@ -1,13 +1,13 @@
-#define git 20210615
-%define gitcommit bc977c3fc6f9784cce5906a988427c47cca19c0d
+%define git 20210924
+%define gitcommit 6dab24bc7467e58df1d537af35153e9a74d7b674
 
 Name: neochat
 Version: 1.2
-Release: %{?git:0.%{git}.}1
+Release: %{?git:2.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
-# git archive --format=tar.gz -o ../neochat-$(date +%Y%m%d).tar.gz --prefix=neochat-master-7e778d225baeefaf937ce8f022f86e10eb46e708/ master
+# git archive --format=tar.gz -o ../neochat-$(date +%Y%m%d).tar.gz --prefix=neochat-master-6dab24bc7467e58df1d537af35153e9a74d7b674/ master
 Source0: https://invent.kde.org/network/neochat/-/archive/%{?git:master}%{!?git:v%{version}}/%{name}-%{?git:%{git}}%{!?git:%{version}}.tar.gz
 
 BuildRequires: cmake(Qt5Concurrent)
@@ -26,6 +26,10 @@ BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5Kirigami2)
 BuildRequires: cmake(KF5Notifications)
 BuildRequires: cmake(KF5DBusAddons)
+BuildRequires: cmake(KF5ConfigWidgets)
+BuildRequires: cmake(KF5KIO)
+BuildRequires: cmake(KF5WindowSystem)
+BuildRequires: cmake(KF5Sonnet)
 BuildRequires: cmake(Olm)
 BuildRequires: cmake(QtOlm)
 BuildRequires: cmake(Quotient)
