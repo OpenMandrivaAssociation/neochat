@@ -1,4 +1,4 @@
-%define git 20210928
+%define git 20211107
 %define gitcommit 71d01593b141f12bcf6556f8fb3e4e41d8a2c1d3
 
 Name: neochat
@@ -7,7 +7,7 @@ Release: %{?git:2.%{git}.}2
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
-# git archive --format=tar.gz -o ../neochat-$(date +%Y%m%d).tar.gz --prefix=neochat-master-71d01593b141f12bcf6556f8fb3e4e41d8a2c1d3/ master
+# git archive --format=tar.gz -o ../neochat-$(date +%Y%m%d).tar.gz --prefix=neochat-master-d1dce37ea7ed207da9f3def7a190440172f46695/ master
 Source0: https://invent.kde.org/network/neochat/-/archive/%{?git:master}%{!?git:v%{version}}/%{name}-%{?git:%{git}}%{!?git:%{version}}.tar.gz
 
 BuildRequires: cmake(Qt5Concurrent)
