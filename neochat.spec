@@ -58,6 +58,8 @@ notably Kirigami, KConfig and KI18n.
 %autosetup -n %{name}-%{git} -p1
 
 %build
+export CC=gcc
+export CXX=g++
 %cmake_kde5
 %ninja_build
 
