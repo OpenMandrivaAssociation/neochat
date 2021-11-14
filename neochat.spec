@@ -1,15 +1,17 @@
-%define git 20210928
+# Try avoid git in future, switch to upcoming stable release.
+# Before update to next git or whatever please at least check if current version/git works and not crashing on desktop archs (x86_64 or znver1)
+%define git 20211107
 %define gitcommit 71d01593b141f12bcf6556f8fb3e4e41d8a2c1d3
 
 Name: neochat
 Version: 1.2
-Release: %{?git:2.%{git}.}2
+Release: %{?git:2.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
-# git archive --format=tar.gz -o ../neochat-$(date +%Y%m%d).tar.gz --prefix=neochat-master-71d01593b141f12bcf6556f8fb3e4e41d8a2c1d3/ master
 Source0: https://invent.kde.org/network/neochat/-/archive/%{?git:master}%{!?git:v%{version}}/%{name}-%{?git:%{git}}%{!?git:%{version}}.tar.gz
 
+BuildRequires: cmake(QCoro)
 BuildRequires: cmake(Qt5Concurrent)
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5DBus)
@@ -23,6 +25,7 @@ BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(KF5Config)
 BuildRequires: cmake(KF5CoreAddons)
 BuildRequires: cmake(KF5I18n)
+BuildRequires: cmake(KF5ItemModels)
 BuildRequires: cmake(KF5Kirigami2)
 BuildRequires: cmake(KF5Notifications)
 BuildRequires: cmake(KF5DBusAddons)
@@ -53,9 +56,15 @@ instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
 %prep
-%autosetup -n %{name}-%{?git:master}%{!?git:v%{version}}-%{gitcommit} -p1
+%autosetup -n %{name}-%{git} -p1
 
 %build
+# As of Clang 13.0.0 and neochat git 20211107 compilations ends with many errors like:
+# "fatal error: 'type_traits' file not found", or "'memory'"
+# Same issue is persent on libcamera too.
+# As workaround switch for now to GCC.
+export CC=gcc
+export CXX=g++
 %cmake_kde5
 %ninja_build
 
