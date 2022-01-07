@@ -1,0 +1,24 @@
+diff -up neochat-21.12/CMakeLists.txt.omv~ neochat-21.12/CMakeLists.txt
+--- neochat-21.12/CMakeLists.txt.omv~	2022-01-07 03:26:19.113068689 +0100
++++ neochat-21.12/CMakeLists.txt	2022-01-07 03:26:26.945094829 +0100
+@@ -111,7 +111,7 @@ set_package_properties(KQuickImageEditor
+     PURPOSE "Add image editing capability to image attachments"
+ )
+ 
+-find_package(QCoro REQUIRED)
++find_package(QCoro5 REQUIRED COMPONENTS Core)
+ 
+ qcoro_enable_coroutines()
+ 
+diff -up neochat-21.12/src/CMakeLists.txt.omv~ neochat-21.12/src/CMakeLists.txt
+--- neochat-21.12/src/CMakeLists.txt.omv~	2022-01-07 03:26:28.964101566 +0100
++++ neochat-21.12/src/CMakeLists.txt	2022-01-07 03:26:55.330189513 +0100
+@@ -62,7 +62,7 @@ if(NOT ANDROID)
+ endif()
+ 
+ target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
+-target_link_libraries(neochat PRIVATE Qt::Quick Qt::Qml Qt::Gui Qt::Network Qt::QuickControls2 KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES} QCoro::QCoro)
++target_link_libraries(neochat PRIVATE Qt::Quick Qt::Qml Qt::Gui Qt::Network Qt::QuickControls2 KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES} QCoro::Core)
+ kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
+ 
+ if(NEOCHAT_FLATPAK)

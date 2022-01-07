@@ -5,7 +5,7 @@
 
 Name: neochat
 Version: 21.12
-Release: %{?git:0.%{git}.}1
+Release: %{?git:0.%{git}.}2
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
@@ -14,8 +14,9 @@ Source0: https://invent.kde.org/network/neochat/-/archive/%{?git:master}%{!?git:
 %else
 Source0: https://download.kde.org/stable/plasma-mobile/%{version}/%{name}-%{version}.tar.xz
 %endif
+Patch0: neochat-21.12-qcoro-0.4.patch
 
-BuildRequires: cmake(QCoro)
+BuildRequires: cmake(QCoro5)
 BuildRequires: cmake(Qt5Concurrent)
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5DBus)
@@ -61,16 +62,10 @@ notably Kirigami, KConfig and KI18n.
 
 %prep
 %autosetup -p1
+%cmake_kde5
 
 %build
-# As of Clang 13.0.0 and neochat git 20211107 compilations ends with many errors like:
-# "fatal error: 'type_traits' file not found", or "'memory'"
-# Same issue is persent on libcamera too.
-# As workaround switch for now to GCC.
-export CC=gcc
-export CXX=g++
-%cmake_kde5
-%ninja_build
+%ninja_build -C build
 
 %install
 %ninja_install -C build
