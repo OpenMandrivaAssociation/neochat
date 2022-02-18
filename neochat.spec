@@ -4,8 +4,8 @@
 #define gitcommit 71d01593b141f12bcf6556f8fb3e4e41d8a2c1d3
 
 Name: neochat
-Version: 21.12
-Release: %{?git:0.%{git}.}2
+Version: 22.02
+Release: %{?git:1.%{git}.}2
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
@@ -14,7 +14,6 @@ Source0: https://invent.kde.org/network/neochat/-/archive/%{?git:master}%{!?git:
 %else
 Source0: https://download.kde.org/stable/plasma-mobile/%{version}/%{name}-%{version}.tar.xz
 %endif
-Patch0: neochat-21.12-qcoro-0.4.patch
 
 BuildRequires: cmake(QCoro5)
 BuildRequires: cmake(Qt5Concurrent)
