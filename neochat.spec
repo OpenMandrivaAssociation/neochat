@@ -4,7 +4,7 @@
 #define gitcommit 71d01593b141f12bcf6556f8fb3e4e41d8a2c1d3
 
 Name: neochat
-Version: 22.02
+Version: 22.04
 Release: %{?git:1.%{git}.}2
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
@@ -78,3 +78,4 @@ notably Kirigami, KConfig and KI18n.
 %{_datadir}/icons/hicolor/*/apps/*
 %{_metainfodir}/*.appdata.xml
 %{_datadir}/knotifications5/%{name}.notifyrc
+%{_datadir}/krunner/dbusplugins/plasma-runner-neochat.desktop
