@@ -68,7 +68,7 @@ notably Kirigami, KConfig and KI18n.
 
 %install
 %ninja_install -C build
-%find_lang %{name}
+%find_lang %{name} --with-man
 
 %files -f %{name}.lang
 %license LICENSES/*
@@ -79,3 +79,4 @@ notably Kirigami, KConfig and KI18n.
 %{_metainfodir}/*.appdata.xml
 %{_datadir}/knotifications5/%{name}.notifyrc
 %{_datadir}/krunner/dbusplugins/plasma-runner-neochat.desktop
+%{_mandir}/man1/neochat.1*
