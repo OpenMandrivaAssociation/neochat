@@ -5,7 +5,7 @@
 
 Name: neochat
 Version: 22.11
-Release: %{?git:1.%{git}.}1
+Release: %{?git:1.%{git}.}2
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
