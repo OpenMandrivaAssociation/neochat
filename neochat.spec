@@ -5,7 +5,7 @@
 
 Name: neochat
 Version: 22.11
-Release: %{?git:1.%{git}.}2
+Release: %{?git:1.%{git}.}3
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
@@ -56,6 +56,7 @@ Requires: %{_lib}KF5ItemModels5
 Requires: qml(org.kde.kquickimageeditor)
 Requires: qt5-qtquickcontrols2
 Requires: qml(org.kde.syntaxhighlighting)
+Requires: kirigami-addons
 
 %description
 Neochat is a client for Matrix, the decentralized communication protocol for
