@@ -68,6 +68,8 @@ notably Kirigami, KConfig and KI18n.
 %cmake_kde5
 
 %build
+export CC=gcc
+export CXX=g++
 %ninja_build -C build
 
 %install
