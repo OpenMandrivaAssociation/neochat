@@ -66,11 +66,13 @@ notably Kirigami, KConfig and KI18n.
 
 %prep
 %autosetup -n %{name}-v%{version} -p1
+export CC=gcc
+export CXX=g++
 %cmake_kde5
 
 %build
-#export CC=gcc
-#export CXX=g++
+export CC=gcc
+export CXX=g++
 %ninja_build -C build
 
 %install
