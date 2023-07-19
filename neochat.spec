@@ -4,7 +4,7 @@
 #define gitcommit 71d01593b141f12bcf6556f8fb3e4e41d8a2c1d3
 
 Name: neochat
-Version: 23.01.0
+Version: 23.04.3
 Release: %{?git:1.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
@@ -12,7 +12,8 @@ URL: https://invent.kde.org/network/neochat
 %if 0%{?git:1}
 Source0: https://invent.kde.org/network/neochat/-/archive/%{?git:master}%{!?git:v%{version}}/%{name}-%{?git:%{git}}%{!?git:%{version}}.tar.gz
 %else
-Source0: https://download.kde.org/stable/plasma-mobile/%{version}/%{name}-%{version}.tar.xz
+#Source0: https://download.kde.org/stable/plasma-mobile/%{version}/%{name}-%{version}.tar.xz
+Source0:  https://invent.kde.org/network/neochat/-/archive/v%{version}/neochat-v%{version}.tar.bz2
 %endif
 
 BuildRequires: cmake(QCoro5)
@@ -64,12 +65,12 @@ instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
 %prep
-%autosetup -p1
+%autosetup %{name}-v%{version} -p1
 %cmake_kde5
 
 %build
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 %ninja_build -C build
 
 %install
