@@ -65,7 +65,7 @@ instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
 %prep
-%autosetup %{name}-v%{version} -p1
+%autosetup -n %{name}-v%{version} -p1
 %cmake_kde5
 
 %build
