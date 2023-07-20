@@ -72,6 +72,7 @@ export CXX=g++
 %cmake_kde5
 
 %build
+# Switch to GCC because Clang 16 crashing at compiling time. Same with libquotient.
 export CC=gcc
 export CXX=g++
 %ninja_build -C build
