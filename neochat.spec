@@ -15,6 +15,7 @@ Source0: https://invent.kde.org/network/neochat/-/archive/%{?git:master}%{!?git:
 #Source0: https://download.kde.org/stable/plasma-mobile/%{version}/%{name}-%{version}.tar.xz
 Source0:  https://invent.kde.org/network/neochat/-/archive/v%{version}/neochat-v%{version}.tar.bz2
 %endif
+Patch0:  https://invent.kde.org/network/neochat/-/merge_requests/1059.patch
 
 BuildRequires: cmake(QCoro5)
 BuildRequires: cmake(Qt5Concurrent)
