@@ -1,21 +1,21 @@
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+
 # Try avoid git in future, switch to upcoming stable release.
 # Before update to next git or whatever please at least check if current version/git works and not crashing on desktop archs (x86_64 or znver1)
 #define git 20211107
 #define gitcommit 71d01593b141f12bcf6556f8fb3e4e41d8a2c1d3
 
 Name: neochat
-Version: 23.04.3
-Release: %{?git:1.%{git}.}1
+Version: 23.08.0
+Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
 %if 0%{?git:1}
 Source0: https://invent.kde.org/network/neochat/-/archive/%{?git:master}%{!?git:v%{version}}/%{name}-%{?git:%{git}}%{!?git:%{version}}.tar.gz
 %else
-#Source0: https://download.kde.org/stable/plasma-mobile/%{version}/%{name}-%{version}.tar.xz
-Source0:  https://invent.kde.org/network/neochat/-/archive/v%{version}/neochat-v%{version}.tar.bz2
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 %endif
-Patch0:  https://invent.kde.org/network/neochat/-/merge_requests/1059.patch
 
 BuildRequires: cmake(QCoro5)
 BuildRequires: cmake(Qt5Concurrent)
@@ -66,7 +66,7 @@ instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
 %prep
-%autosetup -n %{name}-v%{version} -p1
+%autosetup -n %{name}-%{version} -p1
 export CC=gcc
 export CXX=g++
 %cmake_kde5
@@ -91,3 +91,4 @@ export CXX=g++
 %{_datadir}/knotifications5/%{name}.notifyrc
 %{_datadir}/krunner/dbusplugins/plasma-runner-neochat.desktop
 %{_mandir}/man1/neochat.1*
+%{_datadir}/qlogging-categories5/neochat.categories
