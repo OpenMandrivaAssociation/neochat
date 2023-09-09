@@ -1,4 +1,4 @@
-%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+%define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 # Try avoid git in future, switch to upcoming stable release.
 # Before update to next git or whatever please at least check if current version/git works and not crashing on desktop archs (x86_64 or znver1)
@@ -58,7 +58,8 @@ Requires: %{_lib}KF5ItemModels5
 Requires: qml(org.kde.kquickimageeditor)
 Requires: qt5-qtquickcontrols2
 Requires: qml(org.kde.syntaxhighlighting)
-Requires: kirigami-addons
+Requires: kirigami-addons-kde5
+Requires: qt5-qtlocation
 
 %description
 Neochat is a client for Matrix, the decentralized communication protocol for
