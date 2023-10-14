@@ -60,7 +60,7 @@ Requires: qt5-qtquickcontrols2
 Requires: qml(org.kde.syntaxhighlighting)
 Requires: kirigami-addons-kde5
 Requires: qt5-qtlocation
-Requires: qt5-multimedia
+Requires: qt5-qtmultimedia
 Requires: kquickcharts
 
 %description
