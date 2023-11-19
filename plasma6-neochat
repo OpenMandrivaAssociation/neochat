@@ -1,52 +1,50 @@
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
-# Try avoid git in future, switch to upcoming stable release.
-# Before update to next git or whatever please at least check if current version/git works and not crashing on desktop archs (x86_64 or znver1)
 #define git 20211107
 #define gitcommit 71d01593b141f12bcf6556f8fb3e4e41d8a2c1d3
 
 Name: neochat
-Version: 23.08.3
+Version: 24.01.75
 Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
-%if 0%{?git:1}
-Source0: https://invent.kde.org/network/neochat/-/archive/%{?git:master}%{!?git:v%{version}}/%{name}-%{?git:%{git}}%{!?git:%{version}}.tar.gz
-%else
-Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
-%endif
 
-BuildRequires: cmake(QCoro5)
-BuildRequires: cmake(Qt5Concurrent)
-BuildRequires: cmake(Qt5Core)
-BuildRequires: cmake(Qt5DBus)
-BuildRequires: cmake(Qt5Keychain)
-BuildRequires: cmake(Qt5LinguistTools)
-BuildRequires: cmake(Qt5Multimedia)
-BuildRequires: cmake(Qt5Network)
-BuildRequires: cmake(Qt5QuickControls2)
-BuildRequires: cmake(Qt5Svg)
-BuildRequires: cmake(Qt5Test)
-BuildRequires: cmake(Qt5Widgets)
-BuildRequires: cmake(KF5Config)
-BuildRequires: cmake(KF5CoreAddons)
-BuildRequires: cmake(KF5I18n)
-BuildRequires: cmake(KF5ItemModels)
-BuildRequires: cmake(KF5Kirigami2)
-BuildRequires: cmake(KF5KirigamiAddons)
-BuildRequires: cmake(KF5Notifications)
-BuildRequires: cmake(KF5DBusAddons)
-BuildRequires: cmake(KF5DocTools)
-BuildRequires: cmake(KF5ConfigWidgets)
-BuildRequires: cmake(KF5KIO)
-BuildRequires: cmake(KF5WindowSystem)
-BuildRequires: cmake(KF5Sonnet)
+Source0: https://invent.kde.org/network/neochat/-/archive/v%{version}/neochat-v%{version}.tar.bz2
+
+#Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+
+BuildRequires: cmake(Qt6)
+BuildRequires: cmake(QCoro6)
+BuildRequires: cmake(Qt6Concurrent)
+BuildRequires: cmake(Qt6Core)
+BuildRequires: cmake(Qt6DBus)
+BuildRequires: cmake(Qt6Keychain)
+BuildRequires: cmake(Qt6LinguistTools)
+BuildRequires: cmake(Qt6Multimedia)
+BuildRequires: cmake(Qt6Network)
+BuildRequires: cmake(Qt6QuickControls2)
+BuildRequires: cmake(Qt6Svg)
+BuildRequires: cmake(Qt6Test)
+BuildRequires: cmake(Qt6Widgets)
+BuildRequires: cmake(KF6Config)
+BuildRequires: cmake(KF6CoreAddons)
+BuildRequires: cmake(KF6I18n)
+BuildRequires: cmake(KF6ItemModels)
+BuildRequires: cmake(KF6Kirigami2)
+BuildRequires: cmake(KF6KirigamiAddons)
+BuildRequires: cmake(KF6Notifications)
+BuildRequires: cmake(KF6DBusAddons)
+BuildRequires: cmake(KF6DocTools)
+BuildRequires: cmake(KF6ConfigWidgets)
+BuildRequires: cmake(KF6KIO)
+BuildRequires: cmake(KF6WindowSystem)
+BuildRequires: cmake(KF6Sonnet)
 BuildRequires: cmake(Olm)
 BuildRequires: cmake(QtOlm)
-BuildRequires: cmake(Quotient)
+BuildRequires: cmake(QuotientQt6)
 BuildRequires: cmake(KQuickImageEditor)
-BuildRequires: cmake(KF5QQC2DesktopStyle)
+BuildRequires: cmake(KF6QQC2DesktopStyle)
 BuildRequires: pkgconfig(libcmark)
 BuildRequires: cmake(ECM)
 BuildRequires: desktop-file-utils
@@ -72,7 +70,9 @@ notably Kirigami, KConfig and KI18n.
 %autosetup -n %{name}-%{version} -p1
 export CC=gcc
 export CXX=g++
-%cmake_kde5
+%cmake  \
+        -G Ninja \
+        -DBUILD_WITH_QT6:BOOL=ON
 
 %build
 # Switch to GCC because Clang 16 crashing at compiling time. Same with libquotient.
