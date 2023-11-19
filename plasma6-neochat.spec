@@ -48,6 +48,7 @@ BuildRequires: cmake(KQuickImageEditor)
 BuildRequires: cmake(KF6QQC2DesktopStyle)
 BuildRequires: pkgconfig(libcmark)
 BuildRequires: cmake(ECM)
+BuildRequires: pkgconfig(icu-uc)
 BuildRequires: desktop-file-utils
 BuildRequires: pkgconfig(appstream-glib)
 BuildRequires: qml(org.kde.syntaxhighlighting)
