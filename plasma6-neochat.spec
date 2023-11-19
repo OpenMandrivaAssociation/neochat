@@ -1,9 +1,9 @@
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
-
+%define oname neochat
 #define git 20211107
 #define gitcommit 71d01593b141f12bcf6556f8fb3e4e41d8a2c1d3
 
-Name: neochat
+Name: plasma6-neochat
 Version: 24.01.75
 Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
@@ -71,7 +71,7 @@ instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
 %prep
-%autosetup -n %{name}-v%{version} -p1
+%autosetup -n %{oname}-v%{version} -p1
 export CC=gcc
 export CXX=g++
 %cmake  \
@@ -86,12 +86,12 @@ export CXX=g++
 
 %install
 %ninja_install -C build
-%find_lang %{name} --with-man
+%find_lang %{oname} --with-man
 
-%files -f %{name}.lang
+%files -f %{oname}.lang
 %license LICENSES/*
 %doc README.md
-%{_bindir}/%{name}
+%{_bindir}/%{oname}
 %{_datadir}/applications/*.desktop
 %{_datadir}/icons/hicolor/*/apps/*
 %{_metainfodir}/*.appdata.xml
