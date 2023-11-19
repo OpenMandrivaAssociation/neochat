@@ -58,11 +58,11 @@ Requires: hicolor-icon-theme
 Requires: kf6-kirigami
 Requires: %{_lib}KF6ItemModels
 #Requires: qml(org.kde.kquickimageeditor)
-Requires: qt6-qtquickcontrols2
+#Requires: qt6-qtquickcontrols2
 Requires: %{_lib}KF6SyntaxHighlighting
 Requires: kirigami-addons-kde6
-Requires: qt6-qtlocation
-Requires: qt6-qtmultimedia
+#Requires: qt6-qtlocation
+Requires: %{_lib}Qt6Multimedia
 Requires: kf6-kquickcharts
 
 %description
