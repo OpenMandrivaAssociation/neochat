@@ -95,7 +95,7 @@ export CXX=g++
 %{_datadir}/applications/*.desktop
 %{_datadir}/icons/hicolor/*/apps/*
 %{_metainfodir}/*.appdata.xml
-#{_datadir}/knotifications5/%{name}.notifyrc
+%{_datadir}/knotifications6/neochat.notifyrc
+%{_datadir}/qlogging-categories6/neochat.categories
 %{_datadir}/krunner/dbusplugins/plasma-runner-neochat.desktop
 %{_mandir}/man1/neochat.1*
-#{_datadir}/qlogging-categories5/neochat.categories
