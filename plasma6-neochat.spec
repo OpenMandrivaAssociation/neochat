@@ -53,17 +53,17 @@ BuildRequires: cmake(ECM)
 BuildRequires: pkgconfig(icu-uc)
 BuildRequires: desktop-file-utils
 BuildRequires: pkgconfig(appstream-glib)
-BuildRequires: qml(org.kde.syntaxhighlighting)
+BuildRequires: cmake(KF6SyntaxHighlighting)
 Requires: hicolor-icon-theme
-Requires: kirigami2
-Requires: %{_lib}KF5ItemModels5
-Requires: qml(org.kde.kquickimageeditor)
-Requires: qt5-qtquickcontrols2
-Requires: qml(org.kde.syntaxhighlighting)
-Requires: kirigami-addons-kde5
-Requires: qt5-qtlocation
-Requires: qt5-qtmultimedia
-Requires: kquickcharts
+Requires: kf6-kirigami
+Requires: %{_lib}KF6ItemModels
+#Requires: qml(org.kde.kquickimageeditor)
+Requires: qt6-qtquickcontrols2
+Requires: %{_lib}KF6SyntaxHighlighting
+Requires: kirigami-addons-kde6
+Requires: qt6-qtlocation
+Requires: qt6-qtmultimedia
+Requires: kf6-kquickcharts
 
 %description
 Neochat is a client for Matrix, the decentralized communication protocol for
@@ -95,7 +95,7 @@ export CXX=g++
 %{_datadir}/applications/*.desktop
 %{_datadir}/icons/hicolor/*/apps/*
 %{_metainfodir}/*.appdata.xml
-%{_datadir}/knotifications5/%{name}.notifyrc
+#{_datadir}/knotifications5/%{name}.notifyrc
 %{_datadir}/krunner/dbusplugins/plasma-runner-neochat.desktop
 %{_mandir}/man1/neochat.1*
-%{_datadir}/qlogging-categories5/neochat.categories
+#{_datadir}/qlogging-categories5/neochat.categories
