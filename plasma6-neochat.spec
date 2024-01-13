@@ -21,11 +21,13 @@ BuildRequires: cmake(Qt6Core)
 BuildRequires: cmake(Qt6DBus)
 BuildRequires: cmake(Qt6Keychain)
 BuildRequires: cmake(Qt6LinguistTools)
+BuildRequires: cmake(Qt6Location)
 BuildRequires: cmake(Qt6Multimedia)
 BuildRequires: cmake(Qt6Network)
 BuildRequires: cmake(Qt6QuickControls2)
 BuildRequires: cmake(Qt6Svg)
 BuildRequires: cmake(Qt6Test)
+BuildRequires: cmake(Qt6Positioning)
 BuildRequires: cmake(Qt6Widgets)
 BuildRequires: cmake(Qt6WebView)
 BuildRequires: cmake(KF6Config)
@@ -42,6 +44,9 @@ BuildRequires: cmake(KF6ConfigWidgets)
 BuildRequires: cmake(KF6KIO)
 BuildRequires: cmake(KF6WindowSystem)
 BuildRequires: cmake(KF6Sonnet)
+BuildRequires: cmake(Qt6Qml)
+BuildRequires: cmake(Qt6QmlCore)
+BuildRequires: cmake(Qt6QmlNetwork)
 BuildRequires: cmake(Olm)
 BuildRequires: cmake(QtOlm)
 BuildRequires: cmake(QuotientQt6)
@@ -54,6 +59,8 @@ BuildRequires: pkgconfig(icu-uc)
 BuildRequires: desktop-file-utils
 BuildRequires: pkgconfig(appstream-glib)
 BuildRequires: cmake(KF6SyntaxHighlighting)
+BuildRequires: qt6-qtbase-theme-gtk3
+BuildRequires: qt6-qtmultimedia-gstreamer
 Requires: hicolor-icon-theme
 Requires: kf6-kirigami
 Requires: %{_lib}KF6ItemModels
@@ -64,6 +71,10 @@ Requires: kirigami-addons-kde6
 #Requires: qt6-qtlocation
 Requires: %{_lib}Qt6Multimedia
 Requires: kf6-kquickcharts
+Requires: kquickimageeditor
+Requires: kquickimageeditor-qt6
+Requires: qml(QtLocation)
+Requires: %{_lib}Qt6Positioning
 
 %description
 Neochat is a client for Matrix, the decentralized communication protocol for
