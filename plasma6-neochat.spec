@@ -1,16 +1,17 @@
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 %define oname neochat
-#define git 20211107
-#define gitcommit 71d01593b141f12bcf6556f8fb3e4e41d8a2c1d3
+%define git 20240218
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: plasma6-neochat
-Version: 24.01.95
+Version: 24.01.96
 Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
 
-Source0: https://invent.kde.org/network/neochat/-/archive/v%{version}/neochat-v%{version}.tar.bz2
+Source0: https://invent.kde.org/network/neochat/-/archive/%{gitbranch}/neochat-%{gitbranchd}.tar.bz2#/neochat-%{git}.tar.bz2
 
 #Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 
@@ -82,9 +83,9 @@ instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
 %prep
-%autosetup -n %{oname}-v%{version} -p1
-export CC=gcc
-export CXX=g++
+%autosetup -p1 -n neochat-%{?git:%{gitbranchd}}%{!?git:%{version}}
+#export CC=gcc
+#export CXX=g++
 %cmake  \
         -G Ninja \
         -DBUILD_WITH_QT6:BOOL=ON
