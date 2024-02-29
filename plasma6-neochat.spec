@@ -1,19 +1,21 @@
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 %define oname neochat
-%define git 20240218
+#define git 20240218
 %define gitbranch release/24.02
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: plasma6-neochat
-Version: 24.01.96
+Version: 24.02.0
 Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
 
+%if 0%{?git:1}
 Source0: https://invent.kde.org/network/neochat/-/archive/%{gitbranch}/neochat-%{gitbranchd}.tar.bz2#/neochat-%{git}.tar.bz2
-
-#Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+%else
+Source0: https://download.kde.org/%{stable}/release-service/%{version}/src/neochat-%{version}.tar.xz
+%endif
 
 BuildRequires: cmake(Qt6)
 BuildRequires: cmake(QCoro6)
