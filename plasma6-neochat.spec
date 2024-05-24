@@ -5,7 +5,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: plasma6-neochat
-Version: 24.02.2
+Version: 24.05.0
 Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
@@ -78,28 +78,16 @@ Requires: kquickimageeditor
 Requires: kquickimageeditor-qt6
 Requires: qml(QtLocation)
 Requires: %{_lib}Qt6Positioning
+BuildSystem: cmake
+BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+BuildOption: -DBUILD_WITH_QT6:BOOL=ON
 
 %description
 Neochat is a client for Matrix, the decentralized communication protocol for
 instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
-%prep
-%autosetup -p1 -n neochat-%{?git:%{gitbranchd}}%{!?git:%{version}}
-#export CC=gcc
-#export CXX=g++
-%cmake  \
-        -G Ninja \
-        -DBUILD_WITH_QT6:BOOL=ON
-
-%build
-# Switch to GCC because Clang 16 crashing at compiling time. Same with libquotient.
-export CC=gcc
-export CXX=g++
-%ninja_build -C build
-
-%install
-%ninja_install -C build
+%install -a
 %find_lang %{oname} --with-man
 
 %files -f %{oname}.lang
@@ -113,3 +101,4 @@ export CXX=g++
 %{_datadir}/qlogging-categories6/neochat.categories
 %{_datadir}/krunner/dbusplugins/plasma-runner-neochat.desktop
 %{_mandir}/man1/neochat.1*
+%{_qtdir}/plugins/kf6/purpose/neochatplugin.so
