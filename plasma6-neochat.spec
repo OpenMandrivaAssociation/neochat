@@ -6,7 +6,7 @@
 
 Name: plasma6-neochat
 Version: 24.05.1
-Release: %{?git:0.%{git}.}1
+Release: %{?git:0.%{git}.}2
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
@@ -77,7 +77,8 @@ Requires: %{_lib}Qt6Multimedia
 Requires: kf6-kquickcharts
 Requires: kquickimageeditor
 Requires: kquickimageeditor-qt6
-Requires: qml(QtLocation)
+Requires: qml(QtLocation) >= 6.0
+Requires: kf6-prison
 Requires: %{_lib}Qt6Positioning
 BuildSystem: cmake
 BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
