@@ -5,8 +5,8 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: plasma6-neochat
-Version: 24.05.2
-Release: %{?git:0.%{git}.}2
+Version: 24.08.0
+Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
@@ -103,4 +103,4 @@ notably Kirigami, KConfig and KI18n.
 %{_datadir}/qlogging-categories6/neochat.categories
 %{_datadir}/krunner/dbusplugins/plasma-runner-neochat.desktop
 %{_mandir}/man1/neochat.1*
-%{_qtdir}/plugins/kf6/purpose/neochatplugin.so
+%{_qtdir}/plugins/kf6/purpose/neochatshareplugin.so
