@@ -5,8 +5,8 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: plasma6-neochat
-Version: 24.08.3
-Release: %{?git:0.%{git}.}2
+Version: 24.12.1
+Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
@@ -53,7 +53,6 @@ BuildRequires: cmake(Qt6QmlNetwork)
 BuildRequires: cmake(Olm)
 BuildRequires: cmake(QtOlm)
 BuildRequires: cmake(QuotientQt6)
-BuildRequires: cmake(Quotient)
 BuildRequires: cmake(KQuickImageEditor)
 BuildRequires: cmake(KF6QQC2DesktopStyle)
 BuildRequires: cmake(KF6Purpose)
