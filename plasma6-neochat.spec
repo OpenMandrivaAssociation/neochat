@@ -6,7 +6,7 @@
 
 Name: plasma6-neochat
 Version: 24.12.3
-Release: %{?git:0.%{git}.}4
+Release: %{?git:0.%{git}.}5
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
