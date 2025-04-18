@@ -5,8 +5,8 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: plasma6-neochat
-Version: 24.12.3
-Release: %{?git:0.%{git}.}6
+Version: 25.04.0
+Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
