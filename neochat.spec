@@ -5,7 +5,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: neochat
-Version: 25.04.0
+Version: 25.04.3
 Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
@@ -81,16 +81,14 @@ Requires: %{_lib}Qt6Positioning
 BuildSystem: cmake
 BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 BuildOption: -DBUILD_WITH_QT6:BOOL=ON
+%rename plasma6-neochat
 
 %description
 Neochat is a client for Matrix, the decentralized communication protocol for
 instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
 
-%install -a
-%find_lang %{oname} --with-man
-
-%files -f %{oname}.lang
+%files -f %{name}.lang
 %license LICENSES/*
 %doc README.md
 %{_bindir}/%{oname}
