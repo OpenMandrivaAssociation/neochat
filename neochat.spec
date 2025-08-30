@@ -5,7 +5,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: neochat
-Version: 25.04.3
+Version: 25.08.0
 Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
@@ -47,6 +47,7 @@ BuildRequires: cmake(KF6ConfigWidgets)
 BuildRequires: cmake(KF6KIO)
 BuildRequires: cmake(KF6WindowSystem)
 BuildRequires: cmake(KF6Sonnet)
+BuildRequires: cmake(KUnifiedPush)
 BuildRequires: cmake(Qt6Qml)
 BuildRequires: cmake(Qt6QmlCore)
 BuildRequires: cmake(Qt6QmlNetwork)
@@ -100,3 +101,4 @@ notably Kirigami, KConfig and KI18n.
 %{_datadir}/krunner/dbusplugins/plasma-runner-neochat.desktop
 %{_mandir}/man1/neochat.1*
 %{_qtdir}/plugins/kf6/purpose/neochatshareplugin.so
+%{_datadir}/dbus-1/services/org.kde.neochat.service
