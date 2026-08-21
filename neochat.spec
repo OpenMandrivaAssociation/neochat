@@ -5,7 +5,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: neochat
-Version: 26.04.3
+Version: 26.08.0
 Release: %{?git:0.%{git}.}1
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
@@ -104,3 +104,4 @@ notably Kirigami, KConfig and KI18n.
 %{_mandir}/man1/neochat.1*
 %{_qtdir}/plugins/kf6/purpose/neochatshareplugin.so
 %{_datadir}/dbus-1/services/org.kde.neochat.service
+%{_datadir}/config.kcfg/neochatconfig.kcfg
