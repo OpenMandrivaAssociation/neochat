@@ -7,6 +7,11 @@
 Name: neochat
 Version: 26.08.2
 Release: %{?git:0.%{git}.}1
+# znver1 671361 SIGKILLed the linker of neochat and its tests
+# (c++: unable to execute command: Killed, exit 134). aarch64 and
+# x86_64 published. cmake --build does not pass -j, so this cap is
+# applied through CMAKE_BUILD_PARALLEL_LEVEL below.
+%global _smp_ncpus_max 4
 License: GPLv2 and GPLv2+ and GPLv3 and GPLv3+ and BSD
 Summary: Client for matrix, the decentralized communication protocol
 URL: https://invent.kde.org/network/neochat
@@ -92,6 +97,9 @@ BuildOption: -DBUILD_WITH_QT6:BOOL=ON
 Neochat is a client for Matrix, the decentralized communication protocol for
 instant messaging. It is a fork of Spectral, using KDE frameworks, most
 notably Kirigami, KConfig and KI18n.
+
+%build -p
+export CMAKE_BUILD_PARALLEL_LEVEL=4
 
 %files -f %{name}.lang
 %license LICENSES/*
