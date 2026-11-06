@@ -5,8 +5,8 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: neochat
-Version: 26.08.2
-Release: %{?git:0.%{git}.}2
+Version: 26.08.3
+Release: %{?git:0.%{git}.}1
 # znver1 671361 SIGKILLed the linker of neochat and its tests
 # (c++: unable to execute command: Killed, exit 134). aarch64 and
 # x86_64 published. cmake --build does not pass -j, so this cap is
